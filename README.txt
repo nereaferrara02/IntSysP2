@@ -1,4 +1,4 @@
-## Scripting Exercise - Lab 2
+Scripting Exercise - Lab 2
 
 I have followed the tutorial present in the slides and I have added things present in the second tutorial to make the game more entertaining and dynamic.
 
