@@ -13,10 +13,18 @@ public class Sheep : MonoBehaviour
     private Rigidbody myRigidBody;
     private SheepSpawner sheepSpawner;
 
+    private bool isdropped = false;
+
 
     //Heart Part
     public float heartOffset;
     public GameObject heartPrefab;
+
+
+
+    // Rotation Part
+    private bool isRotating = false;
+    private float rotationSpeed;
 
 
     // Start is called before the first frame update
@@ -30,6 +38,11 @@ public class Sheep : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
+       
+        if (isRotating)
+        {
+            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+        }
     }
 
     
@@ -38,6 +51,10 @@ public class Sheep : MonoBehaviour
         sheepSpawner.RemoveSheepFromList(gameObject); 
         hitByHay = true;
         runSpeed = 0;
+
+        rotationSpeed = 360 / gotHayDestroyDelay; // Calculate rotation speed
+        isRotating = true; // Start rotating
+
         Destroy(gameObject, gotHayDestroyDelay);
         Instantiate(heartPrefab, transform.position + new Vector3(0, heartOffset, 0), Quaternion.identity);
         TweenScale tweenScale = gameObject.AddComponent<TweenScale>(); ;
@@ -47,9 +64,6 @@ public class Sheep : MonoBehaviour
         GameStateManager.Instance.SavedSheep();
         SoundManager.Instance.PlaySheepHitClip();
 
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,7 +72,7 @@ public class Sheep : MonoBehaviour
         {
             Destroy(other.gameObject);
             HitByHay();
-        }else if (other.CompareTag("DropSheep"))
+        }else if (other.CompareTag("DropSheep")&& !isdropped)
         {
             Drop();
         }
@@ -66,6 +80,7 @@ public class Sheep : MonoBehaviour
 
     private void Drop()
     {
+        isdropped = true;
         sheepSpawner.RemoveSheepFromList(gameObject);
 
         GameStateManager.Instance.DroppedSheep();

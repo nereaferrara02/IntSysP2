@@ -20,8 +20,6 @@ public class HayMachine : MonoBehaviour
     public GameObject yellowModelPrefab;
     public GameObject redModelPrefab;
 
-
-    public int MaxSheepSaved;
     private void Start()
     {
         LoadModel();
@@ -91,14 +89,6 @@ public class HayMachine : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if(shootTimer <= 0 && Input.GetKey(KeyCode.Space))
         {
-
-            //every time we save 3 sheeps we increment the shootInterval
-            if(GameStateManager.Instance.sheepSaved % MaxSheepSaved == 0)
-            {
-                shootInterval = shootInterval * 0.9f;
-            }
-
-
             shootTimer = shootInterval;
             ShootHay();
 
