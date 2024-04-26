@@ -155,7 +155,6 @@ MonoBehaviour:
     type: 3}
   redModelPrefab: {fileID: 3278733490917006391, guid: 5162234e78cffba45b0498c4775c0be7,
     type: 3}
-  MaxSheepSaved: 4
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +532,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
+  - component: {fileID: 534669906}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -614,6 +614,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a587a7936f7914d4f8ec8827a8f3f638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 10
+  shakeMagnitude: 0.2
+  isShaking: 0
 --- !u!1 &636301019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1212,8 @@ MonoBehaviour:
   - {fileID: 636301020}
   - {fileID: 1314400560}
   timeBetweenSpawns: 2
-  spawnAcceleration: 0.03
+  timeBetweenSpawnsWhileShaking: 0.75
+  cameraShake: {fileID: 534669906}
 --- !u!4 &2054550124
 Transform:
   m_ObjectHideFlags: 0

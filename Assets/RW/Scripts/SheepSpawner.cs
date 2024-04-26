@@ -11,9 +11,16 @@ public class SheepSpawner : MonoBehaviour
     public GameObject sheepPrefab; 
     public List<Transform> sheepSpawnPositions = new List<Transform>();
     public float timeBetweenSpawns;
+    public float timeBetweenSpawnsWhileShaking;
+
+
     private List<GameObject> sheepList = new List<GameObject>();
 
-    public float spawnAcceleration;
+
+    public CameraShake cameraShake;
+
+
+
 
     private void Start()
     {
@@ -34,16 +41,15 @@ public class SheepSpawner : MonoBehaviour
     {
         while (canSpawn)
         {
+            
             SpawnSheep();
-            yield return new WaitForSeconds(timeBetweenSpawns);
 
-            //timeBetweenSpawns is decreased by spawnAcceleration
-            //after each spawn to make the spawns happen faster over time.
-            timeBetweenSpawns -= spawnAcceleration;
-            if(timeBetweenSpawns < 0.1f)
-            {
-                timeBetweenSpawns = 0.1f;
+            if(cameraShake.isShaking){
+                yield return new WaitForSeconds(timeBetweenSpawnsWhileShaking); 
+            }else{
+                yield return new WaitForSeconds(timeBetweenSpawns); 
             }
+
         }
     }
 
