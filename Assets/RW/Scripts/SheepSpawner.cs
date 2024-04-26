@@ -36,6 +36,9 @@ public class SheepSpawner : MonoBehaviour
         {
             SpawnSheep();
             yield return new WaitForSeconds(timeBetweenSpawns);
+
+            //timeBetweenSpawns is decreased by spawnAcceleration
+            //after each spawn to make the spawns happen faster over time.
             timeBetweenSpawns -= spawnAcceleration;
             if(timeBetweenSpawns < 0.1f)
             {
