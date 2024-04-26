@@ -45,6 +45,7 @@ public class SheepSpawner : MonoBehaviour
             SpawnSheep();
 
             if(cameraShake.isShaking){
+                //while the camera shaking the sheeps are spawn faster
                 yield return new WaitForSeconds(timeBetweenSpawnsWhileShaking); 
             }else{
                 yield return new WaitForSeconds(timeBetweenSpawns); 
