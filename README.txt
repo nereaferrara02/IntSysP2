@@ -7,4 +7,4 @@ Regarding the aspect of the game I have added the following functionalities:
 - Added a rotating animation to sheep when hit, enhancing the visual effect as they disappear
 
 
-The project build is in the Release folder
+The project build is inside the Release folder.
