@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777e276fd91c81a44ab4f3802daaf77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 18
+  movementSpeed: 19
   horizontalBoundary: 22
   hayBalePrefab: {fileID: 5319966928393051278, guid: fddc26d8428befb46ae3d64309212bbc,
     type: 3}
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 10
-  shakeMagnitude: 0.2
+  shakeMagnitude: 0.23
   isShaking: 0
 --- !u!1 &636301019
 GameObject:
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   - {fileID: 636301020}
   - {fileID: 1314400560}
   timeBetweenSpawns: 2
-  timeBetweenSpawnsWhileShaking: 0.75
+  timeBetweenSpawnsWhileShaking: 0.65
   cameraShake: {fileID: 534669906}
 --- !u!4 &2054550124
 Transform:
